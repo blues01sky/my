@@ -113,16 +113,5 @@ public class ChanPinController {
 		  request.getRequestDispatcher("/WEB-INF/jsp/show/detail.jsp").forward(request, response);
 	  }
 	  
-	  @RequestMapping(value = "/shoucang",method = RequestMethod.GET)
-	    public void shoucang(HttpSession session,Integer id,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
-	      String username = (String) session.getAttribute("username"); 
-		  
-	        ShouCang shouCang = new ShouCang();
-	        ChanPin cart = chanPinService.findById(id);
-	        shouCang.setJiage(cart.getJiage());
-	        shouCang.setYouhui(cart.getYouhui());
-	        shouCang.setShangpinming(cart.getShangpinming());
-	        shouCang.setUsername(username);
-	        shouCangService.baocun(shouCang);
-	    }
+
 }

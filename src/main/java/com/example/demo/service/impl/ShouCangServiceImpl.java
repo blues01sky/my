@@ -1,5 +1,7 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,15 @@ public class ShouCangServiceImpl implements ShouCangService {
 	@Override
 	public ShouCang baocun(ShouCang shouCang) {
 		return shouCangRepository.save(shouCang);
+	}
+
+	@Override
+	public List<ShouCang> findusrename(String username) {
+		return shouCangRepository.findByUsername(username);
+	}
+
+	@Override
+	public int delshangpin(String shangpinming) {
+		return shouCangRepository.delshangpinming(shangpinming);
 	}
 }

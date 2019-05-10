@@ -161,13 +161,14 @@
 							<li>
 								<a aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" id="cart" class="btn dropdown-toggle" title="打开我的购物车" href="/cart"><i class="icon icon-ShoppingCart"></i></a>
 								<ul class="dropdown-menu no-padding">
-									<li class="mini_cart_item">
-										<a title="移除这个商品" class="remove" href="#">&#215;</a>
-										<a href="#" class="shop-thumbnail">
-											<img alt="poster_2_up" class="attachment-shop_thumbnail" src="">商品
-										</a>
-										<span class="quantity">数量 &#215; <span class="amount">价格</span></span>
-									</li>
+									<c:forEach items="${listchanpins }" var="listchanpin">
+										<li class="mini_cart_item">
+											<a title="移除这个商品" class="remove" href="javascript:if(confirm('确实要删除这个订单吗?'))location='/shoucang/del?shangpinming=${listchanpin.shangpinming }'">&#215;</a>
+											<a href="#" class="shop-thumbnail">${listchanpin.shangpinming}</a>
+											<span class="quantity">${listchanpin.youhui }</span>
+										</li>
+									</c:forEach>
+									
 									<li class="button">
 										<a href="/cart1/cart" title="查看详情">查看详情</a>
 										<a href="#" title="结账">结账</a>

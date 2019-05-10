@@ -14,20 +14,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.entity.ChanPin;
+import com.example.demo.entity.ShouCang;
 import com.example.demo.service.ChanPinService;
+import com.example.demo.service.ShouCangService;
 
 @Controller
 public class MainController {
 	
 	@Autowired
 	private ChanPinService chanPinService;
+	@Autowired
+	private ShouCangService shouCangService;
 	
 	 @RequestMapping(value = "/index",method = RequestMethod.GET)
 	    public void chanpinlist(HttpSession session,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
 		 	List<ChanPin> SearchResults = chanPinService.chanpinList();
 	        String username = (String) session.getAttribute("username");
 	        System.out.println("username::::::::::::::::::::::::"+username);
-	        
+	        List<ShouCang> listchanpins = shouCangService.findusrename(username);
+	        request.setAttribute("listchanpins",listchanpins);
 	        request.setAttribute("SearchResults",SearchResults);
 	        request.setAttribute("username",username);
 	        request.getRequestDispatcher("/WEB-INF/jsp/show/index.jsp").forward(request, response);
@@ -75,14 +80,17 @@ public class MainController {
 	       request.setAttribute("SearchResults", SearchResults);
 	       request.getRequestDispatcher("/WEB-INF/jsp/show/goods.jsp").forward(request, response);
     }
+	
 	@RequestMapping(value = "/connect",method = RequestMethod.GET)
     public String contact(){
         return "show/contact-us";
     }
+	
 	@RequestMapping(value = "/checkout",method = RequestMethod.GET)
     public String checkout(){
         return "show/checkout";
     }
+	
 	@RequestMapping(value = "/cart",method = RequestMethod.GET)
     public String cart(){
         return "show/cart";

@@ -245,7 +245,7 @@
 							</a>
 							<div class="wishlist-box">
 								<a href="/chanpin/detail?shangpinming=${SearchResult.shangpinming}"><i class="fa fa-arrows-alt" title="查看详情"></i></a>
-								<a href="/chanpin/shoucang?id=${SearchResult.id }"><i class="fa fa-heart-o" title="收藏"></i></a>
+								<a href="/shoucang/shoucang?id=${SearchResult.id }"><i class="fa fa-heart-o" title="收藏"></i></a>
 								<a href="#"><i class="fa fa-search" title="更多相似产品"></i></a>
 							</div>
 							<a href="/cart1/cart1" class="addto-cart" title="添加到购物车">添加到购物车</a>

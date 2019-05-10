@@ -1,0 +1,85 @@
+@CHARSET "gbk";
+body{margin:0 auto; padding:0; text-align:center; font-size:14px; color:#333; font-family:微软雅黑,宋体,Arial; word-break: break-all;  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; background:#F0F3EF} /*background:url(/image/bg01.jpg) no-repeat;*/
+p,form,input,button{margin:0; padding:0;}
+a img{border: none}
+a{text-decoration:none; color:#333}
+a:hover{font-weight:bold}
+
+/*网页头部*/
+.topline{display:block; margin:auto; width:100%; min-weight:1200px; line-height:36px; border-bottom:1px solid #ddd; background:#f4f4f4}
+.topline div{display:block; margin:auto; width:1200px; text-align:left; position:relative}
+.topline div span{display:inline-block; position:absolute; right:0}
+
+.search{display:block; margin:auto; width:400px; height:32px; text-align:left; border:1px solid #999; border-radius:2px; background:#fff}
+.searchin{width:360px; height:100%; font-size:12px; border:none; background:none; color:#999; padding-left:5px}
+.searchbut{margin-left:5px; vertical-align:middle}
+
+.mycart{display:block; width:150px; padding-right:30px; line-height:48px; background:url(/image/cart.png) 20px 10px no-repeat; background-color:#ff4400; color:#fff; text-align:right; font-size:16px; border-radius:2px }
+
+/*导航 */
+.dhline{display:block; margin:auto; width:100%; min-weight:1200px; border-bottom:2px solid #CD3800}
+.dh{display:block; margin:auto; width:1200px; height:42px; position:relative;}
+/*分类菜单（图标）*/
+.tpmenu{display:inline-block; margin:auto; z-index:100; width:180px; height:42px; line-height:42px; font-weight:bold; background:#CD3800; position:absolute; left:0; border-radius:2px 2px 0 0;}
+.tpmenu div{display:none; margin:0; padding:0; position:absolute; top:42px; left:0; width:620px; height:335px; background:#fff; z-index:90; filter:alpha(Opacity=75); -moz-opacity:0.75; opacity:0.75;}
+.tpmenu span{display:none; margin:0; padding:0; position:absolute; top:42px; left:0; width:600px; text-align:left; padding:10px; z-index:100;}
+.tpmenu span a{display:inline-block; width:130px; border:1px solid #999; margin:10px 0 0 11px; text-align:center}
+.tpmenu span a:hover{border:1px solid #003366; background:#fff}
+.tpmenu:hover span {display:block}
+.tpmenu:hover div {display:block}
+
+
+      /*导航菜单*/
+.dhmenu{display:inline-block; margin:auto; padding:0; list-style:none; z-index:100; width:1000px; height:42px; position:absolute; right:0;}
+.dhmenu li{position:relative; float:left; width:145px; line-height:42px;}
+.dhmenu li:hover a{color:#fff; background:#CD3800; }
+.dhmenu li a{display:block; width:100%; height:100%; font-size:16px; border-radius:2px 2px 0 0; color:#000}
+
+.dhmenu li ul{display:none; list-style:none; margin:0; padding:0; position:absolute; top:42px; left:0; width:200px;}  
+.dhmenu li ul li{margin:0; width:200px; line-height:48px; }
+.dhmenu li ul li a{width:190px; padding-left:10px; text-align:left; position:relative; border-bottom:dotted 1px #ddd; color:#333; font-weight:normal;  border-radius:0; font-size:14px;}
+.dhmenu li ul li a:hover{background:url(/image/one0.gif) no-repeat 180px center; background-color:#EF3A02}
+.dhmenu li:hover ul{display:block}
+
+.dhmenu li ul li ul{display:none; list-style:none; margin:0; padding:0; position:absolute; top:0; left:200px; width:200px;} /*三级*/ 
+.dhmenu li:hover ul li ul li a{background:#C03400}
+.dhmenu li:hover ul li ul li a:hover{background:url(/image/one0.gif) no-repeat 180px center; background-color:#EF3A02;}
+.dhmenu li:hover ul li ul{display:none}
+.dhmenu li ul li:hover ul{display:block}
+
+.menuIMG{position:absolute; top:-7px; right:22px}/*菜单上的图标*/
+
+/*产品样式*/
+.cpbox{display:block; margin:auto; width:1200px; overflow:hidden;}
+.cpbox .linkimg{display:inline-block; width:240px; height:570px; float:left; margin-top:10px; cursor:pointer}
+
+.cpbox a{display:inline-block; width:230px; height:280px; float:left; position:relative; margin:10px 0 0 10px; text-align:center; background:#fff}
+.cpbox a img{display:block; margin:auto; width:200px; height:200px; margin-top:15px}
+.cpbox a b{display:block; line-height:30px; padding:5px; text-align:left; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-weight:normal;}
+.cpbox a em{display:block; text-align:left; }
+.cpbox a em i{font-style:normal; font-size:16px; color:red}
+.cpbox a em u{text-decoration:none; text-decoration:line-through; font-size:12px; color:#666}
+.cpbox a span{display:inline-block; width:48px; height:49px; position:absolute; top:0; right:0; background:url(/image/xiao.png)}
+
+.cptil{display:block; margin:auto; margin-top:10px; width:1200px; line-height:36px; text-align:left; color:#ff4400; border-bottom:1px solid #ff4400;}/*二级页标题*/
+
+/*底部*/
+.bot{display:block; margin:0 auto; width:100%; min-width:1200px; background:#E9ECE7; margin-top:10px}
+.bot table{margin:auto}
+
+.copyright{display:block; width:100%; min-width:1200px; margin:0 auto; background:#021523}
+.copyright span{display:block; width:1200px; margin:auto; line-height:60px; color:#888; text-align:left}
+.copyright span a{float:right; color:#888}
+
+/*注册用户界面*/
+.usTop{display:block; margin:auto; width:100%; border-bottom:1px solid #eee; padding:20px 0 20px 0}
+.usTop div{display:block; margin:auto; width:1200px; text-align:left; position:relative}
+.usTop div span{display:inline-block; position:absolute; right:0; line-height:80px}
+.usTop div span a{display:inline-block; margin-left:40px; text-align:center; line-height:24px}
+.usTop div span a img{display:block;}
+
+.usBot{display:block; margin:auto; width:1200px; border-top:1px solid #eee; line-height:36px; padding-top:10px; margin-top:20px; font-size:12px; color:#999; font-family:微软雅黑,宋体,Arial;}
+.usBot a{color:#999}
+
+
+

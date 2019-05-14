@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.ChanPin;
-import com.example.demo.entity.ShouCang;
 import com.example.demo.service.ChanPinService;
-import com.example.demo.service.ShouCangService;
 
 @Controller
 @RequestMapping("/chanpin")
@@ -25,8 +23,6 @@ public class ChanPinController {
 	
     @Autowired
     private ChanPinService chanPinService;
-    @Autowired
-    private ShouCangService shouCangService;
     /*@RequestMapping(value = "/list",method = RequestMethod.GET)
     public List<ChanPin> ListChanPin(){
     	List<ChanPin> goods = chanPinService.chanpinList();
@@ -35,12 +31,7 @@ public class ChanPinController {
     
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public void chanpinlist(HttpSession session, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
-        List<ChanPin> SearchResults = chanPinService.chanpinList();
-        String username = (String) session.getAttribute("username");
-        System.out.println("username::::::::::::::::::::::::"+username);
-        request.setAttribute("SearchResults",SearchResults);
-        request.setAttribute("username",username);
-        request.getRequestDispatcher("/WEB-INF/jsp/show/index.jsp").forward(request, response);
+    	 response.sendRedirect(response.encodeRedirectURL("/chanpin/fenye"));
     }
     
     @RequestMapping(value = "/search",method = RequestMethod.GET)

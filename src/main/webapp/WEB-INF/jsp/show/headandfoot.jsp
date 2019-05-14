@@ -95,7 +95,7 @@
 			<!-- Container -->
 			<div class="container">
 				<div class="col-md-7 col-sm-7 col-xs-7 dropdown-bar">
-					<h5>欢迎您${username}来到小二的商店</h5>
+					<h5>欢迎您${username }来到小二的商店</h5>
 					<div class="language-dropdown dropdown">
 						<button aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" title="languages" id="language" type="button" class="btn dropdown-toggle">中文<span class="caret"></span></button>
 						<ul class="dropdown-menu no-padding">
@@ -118,12 +118,12 @@
 					<ul>
 						<li><a href="#" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
 						<li><a href="http://www.qq.com" title="qq"><i class="fa fa-qq"></i></a></li>
-						<li><a href="#" title="微信"><i class="fa fa-wechat"></i></a></li>
-						<li><a href="#" title="微博"><i class="fa fa-weibo"></i></a></li>
-						<li><a href="#" title="v"><i class="fa fa-vimeo"></i></a></li>
-						<li><a href="#" title="分享"><i class="fa fa-bicycle"></i></a></li>
+						<li><a href="http://www.qq.com" title="微信"><i class="fa fa-wechat"></i></a></li>
+						<li><a href="http://www.qq.com" title="微博"><i class="fa fa-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="v"><i class="fa fa-vimeo"></i></a></li>
+						<li><a href="http://www.qq.com" title="分享"><i class="fa fa-bicycle"></i></a></li>
 						<c:choose>
-							<c:when test="${username.isEmpty()}">
+							<c:when test="${empty username}">
 								<li><a href="user/regist" title="注册">注册</a></li>
 								<li><a href="user/login" title="登录">登录</a></li>
 							</c:when>
@@ -149,40 +149,36 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="index.jsp" class="navbar-brand">欢迎 <span>访问</span></a>
+						<a href="/index" class="navbar-brand">欢迎 <span>访问</span></a>
 					</div>
 					<!-- Menu Icon -->
 					<div class="menu-icon">
 						<div class="search">
-							<a href="#" id="search" title="Search"><i class="icon icon-Search"></i></a>
+							<a href="/chanpin/search" id="search" title="Search"><i class="icon icon-Search"></i></a>
 						</div>
+						<c:if test="${not empty username}">
 						<ul class="cart">
 							<li>
-								<a aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" id="cart" class="btn dropdown-toggle" title="添加到购物车" href="#"><i class="icon icon-ShoppingCart"></i></a>
+								<a aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" id="cart" class="btn dropdown-toggle" title="打开我的购物车" href="/cart"><i class="icon icon-ShoppingCart"></i></a>
 								<ul class="dropdown-menu no-padding">
-									<li class="mini_cart_item">
-										<a title="移除这个商品" class="remove" href="#">&#215;</a>
-										<a href="#" class="shop-thumbnail">
-											<img alt="poster_2_up" class="attachment-shop_thumbnail" src="images/product-wishlist-1.jpg">商品
-										</a>
-										<span class="quantity">数量 &#215; <span class="amount">价格</span></span>
-									</li>
-									<li class="mini_cart_item">
-										<a title="移除这个商品" class="remove" href="#">&#215;</a>
-										<a href="#" class="shop-thumbnail">
-											<img alt="poster_2_up" class="attachment-shop_thumbnail" src="images/product-wishlist-2.jpg">商品
-										</a>
-										<span class="quantity">数量 &#215; <span class="amount">价格</span></span>
-									</li>
+									<c:forEach items="${listchanpins }" var="listchanpin">
+										<li class="mini_cart_item">
+											<a title="移除这个商品" class="remove" href="javascript:if(confirm('确实要删除这个订单吗?'))location='/shoucang/del?shangpinming=${listchanpin.shangpinming }'">&#215;</a>
+											<a href="/chanpin/detail?shangpinming=${listchanpin.shangpinming}" name="shangpinming" class="shop-thumbnail">${listchanpin.shangpinming}</a>
+											<span class="quantity">${listchanpin.youhui }</span>
+										</li>
+									</c:forEach>
+									
 									<li class="button">
-										<a href="#" title="查看详情">查看详情</a>
-										<a href="#" title="结账">结账</a>
+										<a href="/cart1/cart" title="查看详情">查看详情</a>
+										<a href="/order/index" title="结账">结账</a>
 									</li>
 								</ul>
 							</li>
-							<li><a href="#" title="我喜欢"><i class="icon icon-Heart"></i></a></li>
-							<li><a href="login.jsp" title="用户"><i class="icon icon-User"></i></a></li>
+							<li><a href="/shoucang/shoucang" title="我喜欢"><i class="icon icon-Heart"></i></a></li>
+							<li><a href="/message/myindex" title="用户"><i class="icon icon-User"></i></a></li>
 						</ul>
+						</c:if>
 					</div><!-- Menu Icon /- -->
 					<div class="navbar-collapse collapse navbar-right" id="navbar">
 						<ul class="nav navbar-nav">
@@ -202,7 +198,6 @@
 			</div><!-- Container /- -->
 		</div><!-- Menu Block /- -->
 	</header>
-
 	<!-- 正文 -->
 		<div class="infoDiv">
 			<span class="usTitle">我的订单</span>
@@ -253,31 +248,31 @@
 					<a href="index.jsp" title="Max Shop">我的家居<span>商城</span></a>
 					<div class="info">
 						<p><i class="icon icon-Pointer"></i>郑州航院</p>
-						<p><i class="icon icon-Phone2"></i><a href="tel:(11)1234567890" title="电话" class="phone">123456789+</a></p>
-						<p><i class="icon icon-Imbox"></i><a href="mailto:info@maxshop.com" title="百度一下，你就知道">www.baidu.com</a></p>
+						<p><i class="icon icon-Phone2"></i><a href="http://www.baidu.com" title="电话" class="phone">123456789+</a></p>
+						<p><i class="icon icon-Imbox"></i><a href="mailto:123456789@163.com" title="百度一下，你就知道">发送邮件</a></p>
 					</div>
 				</aside><!-- Widget About /- -->
 				<!-- Widget Links -->
 				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links">
 					<h3 class="widget-title">最新流行风</h3>
 					<ul>
-						<li><a href="#product-section" title="最新流行风">最新流行风</a></li>
-						<li><a href="#selling" title="畅销款">畅销款</a></li>
-						<li><a href="about.jsp" title="关于我们">关于我们</a></li>
-						<li><a href="#dealing" title="今日爆款">今日爆款</a></li>
-						<li><a href="#collection" title="产品收藏">产品收藏</a></li>
-						<li><a href="contact-us.jsp" title="联系我们">联系我们</a></li>
+						<li><a href="/chanpin/index" title="最新流行风">最新流行风</a></li>
+						<li><a href="/chanpin/index" title="畅销款">畅销款</a></li>
+						<li><a href="/about" title="关于我们">关于我们</a></li>
+						<li><a href="/chanpin/index" title="今日爆款">今日爆款</a></li>
+						<li><a href="/chanpin/index" title="产品收藏">产品收藏</a></li>
+						<li><a href="/connectus" title="联系我们">联系我们</a></li>
 					</ul>
 				</aside><!-- Widget Links /- -->
 				<!-- Widget Account -->
 				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links widget_account">
 					<h3 class="widget-title">我的账户</h3>
 					<ul>
-						<li><a href="#" title="我的订单">我的订单</a></li>
-						<li><a href="#" title="我的信用">我的信用</a></li>
-						<li><a href="#" title="我的地址">我的地址</a></li>
-						<li><a href="#" title="我的个人资料">我的个人资料</a></li>
-						<li><a href="#" title="我的账户">我的账户</a></li>
+						<li><a href="/message/myorder" title="我的订单">我的订单</a></li>
+						<li><a href="/message/myorder" title="我的信用">我的信用</a></li>
+						<li><a href="/message/myindex" title="我的地址">我的地址</a></li>
+						<li><a href="/message/myorder" title="我的个人资料">我的个人资料</a></li>
+						<li><a href="/message/myorder" title="我的账户">我的账户</a></li>
 					</ul>
 				</aside><!-- Widget Account /- -->
 				<!-- Widget Newsletter -->
@@ -292,11 +287,11 @@
 					<h5>从商城中获取最新的产品</h5>
 					<h3 class="widget-title widget-title-1">加入我们</h3>
 					<ul class="social">
-						<li><a href="#" title="qq"><i class="fa fa-qq"></i></a></li>
-						<li><a href="#" title="微信"><i class="fa fa-wechat"></i></a></li>
-						<li><a href="#" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
-						<li><a href="#" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
-						<li><a href="#" title="分享"><i class="fa fa-bicycle"></i></a></li>
+						<li><a href="http://www.qq.com" title="qq"><i class="fa fa-qq"></i></a></li>
+						<li><a href="http://www.qq.com" title="微信"><i class="fa fa-wechat"></i></a></li>
+						<li><a href="http://www.qq.com" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="分享"><i class="fa fa-bicycle"></i></a></li>
 					</ul>
 				</aside><!-- Widget Newsletter /- -->
 			</div>
@@ -305,13 +300,15 @@
 					<p>Copyright &copy; 版权(2007)公司名称保留所有权利。<a href="http://www.baidu.com/" target="_blank" title="百度">百度</a>----<a href="http://www.qq.com/" title="腾讯" target="_blank">腾讯</a></p>
 				</div>
 				<ul>
-					<li><a href="#" title="快递信息">快递信息</a></li>
-					<li><a href="#" title="隐私政策">隐私政策</a></li>
-					<li><a href="#" title="条款和条件">条款和条件</a></li>
+					<li><a href="http://www.kuaidi100.com/" title="快递信息">快递信息</a></li>
+					<li><a href="http://www.baidu.com" title="隐私政策">隐私政策</a></li>
+					<li><a href="http://www.baidu.com" title="条款和条件">条款和条件</a></li>
+					<li><a href="#" title="选择用户">选择用户</a></li>
 				</ul>
 			</div>
 		</div><!-- Container /- -->
 	</footer><!-- Footer Main /- -->
+
 
 </div>
 

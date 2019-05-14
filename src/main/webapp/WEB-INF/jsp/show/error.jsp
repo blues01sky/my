@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   		登录的时候出现错误；
+   		错误页面404
   </body>
 </html>

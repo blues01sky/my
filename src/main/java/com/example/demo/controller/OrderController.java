@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Cart;
 import com.example.demo.entity.Message;
@@ -115,8 +114,11 @@ public class OrderController {
 	  
 	  @RequestMapping(value = "/index",method = RequestMethod.GET)
 	  public void index(HttpSession session,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		  Order order = (Order) session.getAttribute("order");
 		  String username = (String) session.getAttribute("username");
+		  if (username == null) {
+			  response.sendRedirect(response.encodeRedirectURL("/user/login"));
+		}else {
+		  Order order = (Order) session.getAttribute("order");
 		  Message message = messageService.findByUsername(username);
 		  
 		  List<Order2> findresults = order2Service.findByOrderid(order.getOrderid());
@@ -127,7 +129,7 @@ public class OrderController {
 		  request.setAttribute("findresults",findresults);
 		  request.setAttribute("message",message);
 		  request.setAttribute("zongjia",zongjia);
-		  
+		}
 		  request.getRequestDispatcher("/WEB-INF/jsp/show/order.jsp").forward(request, response);
 	  }
 	 

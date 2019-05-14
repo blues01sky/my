@@ -54,74 +54,77 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     	
-    		<footer id="footer-main" class="footer-main container-fluid">
-			<!-- Container -->
-			<div class="container">
-				<div class="row">
-					<!-- Widget About -->
-					<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_about">
-						<a href="index.html" title="Max Shop">我的家居<span>商城</span></a>
-						<div class="info">
-							<p><i class="icon icon-Pointer"></i>郑州航院</p>
-							<p><i class="icon icon-Phone2"></i><a href="tel:(11)1234567890" title="电话" class="phone">123456789+</a></p>
-							<p><i class="icon icon-Imbox"></i><a href="mailto:info@maxshop.com" title="百度一下，你就知道">www.baidu.com</a></p>
-						</div>
-					</aside><!-- Widget About /- -->
-					<!-- Widget Links -->
-					<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links">
-						<h3 class="widget-title">最新流行风</h3>
-						<ul>
-							<li><a href="#product-section" title="最新流行风">最新流行风</a></li>
-							<li><a href="#selling" title="畅销款">畅销款</a></li>
-							<li><a href="about.html" title="关于我们">关于我们</a></li>
-							<li><a href="#dealing" title="今日爆款">今日爆款</a></li>
-							<li><a href="#collection" title="产品收藏">产品收藏</a></li>
-							<li><a href="contact-us.html" title="联系我们">联系我们</a></li>
-						</ul>
-					</aside><!-- Widget Links /- -->
-					<!-- Widget Account -->
-					<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links widget_account">
-						<h3 class="widget-title">我的账户</h3>
-						<ul>
-							<li><a href="#" title="我的订单">我的订单</a></li>
-							<li><a href="#" title="我的信用">我的信用</a></li>
-							<li><a href="#" title="我的地址">我的地址</a></li>
-							<li><a href="#" title="我的个人资料">我的个人资料</a></li>
-							<li><a href="#" title="我的账户">我的账户</a></li>
-						</ul>
-					</aside><!-- Widget Account /- -->
-					<!-- Widget Newsletter -->
-					<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_newsletter">
-						<h3 class="widget-title">联系</h3>
-						<div class="input-group">
-							<input class="form-control" placeholder="输入邮件地址" type="text">
-							<span class="input-group-btn">
+    			<!-- Footer Main -->
+	<footer id="footer-main" class="footer-main container-fluid">
+		<!-- Container -->
+		<div class="container">
+			<div class="row">
+				<!-- Widget About -->
+				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_about">
+					<a href="index.jsp" title="Max Shop">我的家居<span>商城</span></a>
+					<div class="info">
+						<p><i class="icon icon-Pointer"></i>郑州航院</p>
+						<p><i class="icon icon-Phone2"></i><a href="http://www.baidu.com" title="电话" class="phone">123456789+</a></p>
+						<p><i class="icon icon-Imbox"></i><a href="mailto:123456789@163.com" title="百度一下，你就知道">发送邮件</a></p>
+					</div>
+				</aside><!-- Widget About /- -->
+				<!-- Widget Links -->
+				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links">
+					<h3 class="widget-title">最新流行风</h3>
+					<ul>
+						<li><a href="/chanpin/index" title="最新流行风">最新流行风</a></li>
+						<li><a href="/chanpin/index" title="畅销款">畅销款</a></li>
+						<li><a href="/about" title="关于我们">关于我们</a></li>
+						<li><a href="/chanpin/index" title="今日爆款">今日爆款</a></li>
+						<li><a href="/chanpin/index" title="产品收藏">产品收藏</a></li>
+						<li><a href="/connectus" title="联系我们">联系我们</a></li>
+					</ul>
+				</aside><!-- Widget Links /- -->
+				<!-- Widget Account -->
+				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links widget_account">
+					<h3 class="widget-title">我的账户</h3>
+					<ul>
+						<li><a href="/message/myorder" title="我的订单">我的订单</a></li>
+						<li><a href="/message/myorder" title="我的信用">我的信用</a></li>
+						<li><a href="/message/myindex" title="我的地址">我的地址</a></li>
+						<li><a href="/message/myorder" title="我的个人资料">我的个人资料</a></li>
+						<li><a href="/message/myorder" title="我的账户">我的账户</a></li>
+					</ul>
+				</aside><!-- Widget Account /- -->
+				<!-- Widget Newsletter -->
+				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_newsletter">
+					<h3 class="widget-title">联系</h3>
+					<div class="input-group">
+						<input class="form-control" placeholder="输入邮件地址" type="text">
+						<span class="input-group-btn">
 								<button class="btn btn-default" type="button"><i class="fa fa-paper-plane-o"></i></button>
 							</span>
-						</div>
-						<h5>从商城中获取最新的产品</h5>
-						<h3 class="widget-title widget-title-1">加入我们</h3>
-						<ul class="social">
-							<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#" title="Tumblr"><i class="fa fa-tumblr"></i></a></li>
-							<li><a href="#" title="Vimeo"><i class="fa fa-vimeo"></i></a></li>
-						</ul>
-					</aside><!-- Widget Newsletter /- -->
-				</div>
-				<div class="copyright-section">
-					<div class="coyright-content">
-						<p>Copyright &copy; 版权(2007)公司名称保留所有权利。<a href="http://www.baidu.com/" target="_blank" title="百度">百度</a>----<a href="http://www.qq.com/" title="腾讯" target="_blank">腾讯</a></p>
-					</div>	
-					<ul>
-						<li><a href="#" title="快递信息">快递信息</a></li>
-						<li><a href="#" title="隐私政策">隐私政策</a></li>
-						<li><a href="#" title="条款和条件">条款和条件</a></li>
+					</div>
+					<h5>从商城中获取最新的产品</h5>
+					<h3 class="widget-title widget-title-1">加入我们</h3>
+					<ul class="social">
+						<li><a href="http://www.qq.com" title="qq"><i class="fa fa-qq"></i></a></li>
+						<li><a href="http://www.qq.com" title="微信"><i class="fa fa-wechat"></i></a></li>
+						<li><a href="http://www.qq.com" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="分享"><i class="fa fa-bicycle"></i></a></li>
 					</ul>
+				</aside><!-- Widget Newsletter /- -->
+			</div>
+			<div class="copyright-section">
+				<div class="coyright-content">
+					<p>Copyright &copy; 版权(2007)公司名称保留所有权利。<a href="http://www.baidu.com/" target="_blank" title="百度">百度</a>----<a href="http://www.qq.com/" title="腾讯" target="_blank">腾讯</a></p>
 				</div>
-			</div><!-- Container /- -->
-		</footer><!-- Footer Main /- -->
+				<ul>
+					<li><a href="http://www.kuaidi100.com/" title="快递信息">快递信息</a></li>
+					<li><a href="http://www.baidu.com" title="隐私政策">隐私政策</a></li>
+					<li><a href="http://www.baidu.com" title="条款和条件">条款和条件</a></li>
+					<li><a href="#" title="选择用户">选择用户</a></li>
+				</ul>
+			</div>
+		</div><!-- Container /- -->
+	</footer><!-- Footer Main /- -->
+
 
 	</div>
 

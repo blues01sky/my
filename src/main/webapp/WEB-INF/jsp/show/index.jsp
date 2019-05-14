@@ -118,10 +118,10 @@
 					<ul>
 						<li><a href="#" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
 						<li><a href="http://www.qq.com" title="qq"><i class="fa fa-qq"></i></a></li>
-						<li><a href="#" title="微信"><i class="fa fa-wechat"></i></a></li>
-						<li><a href="#" title="微博"><i class="fa fa-weibo"></i></a></li>
-						<li><a href="#" title="v"><i class="fa fa-vimeo"></i></a></li>
-						<li><a href="#" title="分享"><i class="fa fa-bicycle"></i></a></li>
+						<li><a href="http://www.qq.com" title="微信"><i class="fa fa-wechat"></i></a></li>
+						<li><a href="http://www.qq.com" title="微博"><i class="fa fa-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="v"><i class="fa fa-vimeo"></i></a></li>
+						<li><a href="http://www.qq.com" title="分享"><i class="fa fa-bicycle"></i></a></li>
 						<c:choose>
 							<c:when test="${empty username}">
 								<li><a href="user/regist" title="注册">注册</a></li>
@@ -149,12 +149,12 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="index.jsp" class="navbar-brand">欢迎 <span>访问</span></a>
+						<a href="/index" class="navbar-brand">欢迎 <span>访问</span></a>
 					</div>
 					<!-- Menu Icon -->
 					<div class="menu-icon">
 						<div class="search">
-							<a href="#" id="search" title="Search"><i class="icon icon-Search"></i></a>
+							<a href="/chanpin/search" id="search" title="Search"><i class="icon icon-Search"></i></a>
 						</div>
 						<c:if test="${not empty username}">
 						<ul class="cart">
@@ -164,18 +164,18 @@
 									<c:forEach items="${listchanpins }" var="listchanpin">
 										<li class="mini_cart_item">
 											<a title="移除这个商品" class="remove" href="javascript:if(confirm('确实要删除这个订单吗?'))location='/shoucang/del?shangpinming=${listchanpin.shangpinming }'">&#215;</a>
-											<a href="#" class="shop-thumbnail">${listchanpin.shangpinming}</a>
+											<a href="/chanpin/detail?shangpinming=${listchanpin.shangpinming}" name="shangpinming" class="shop-thumbnail">${listchanpin.shangpinming}</a>
 											<span class="quantity">${listchanpin.youhui }</span>
 										</li>
 									</c:forEach>
 									
 									<li class="button">
 										<a href="/cart1/cart" title="查看详情">查看详情</a>
-										<a href="#" title="结账">结账</a>
+										<a href="/order/index" title="结账">结账</a>
 									</li>
 								</ul>
 							</li>
-							<li><a href="#" title="我喜欢"><i class="icon icon-Heart"></i></a></li>
+							<li><a href="/shoucang/shoucang" title="我喜欢"><i class="icon icon-Heart"></i></a></li>
 							<li><a href="/message/myindex" title="用户"><i class="icon icon-User"></i></a></li>
 						</ul>
 						</c:if>
@@ -371,7 +371,7 @@
 							 data-actions='[{"event":"click","action":"scrollbelow","offset":"0px"}]'
 							 data-responsive_offset="on"
 							 data-responsive="off"
-							 style="z-index: 10; padding:8px 38px; letter-spacing:0.56px; color: #b6795f; border-color: #b6795f; font-family: 'Montserrat', sans-serif; text-transform:uppercase; background-color:transparent; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">现在购买
+							 style="z-index: 10; padding:8px 38px; letter-spacing:0.56px; color: #b6795f; border-color: #b6795f; font-family: 'Montserrat', sans-serif; text-transform:uppercase; background-color:transparent; white-space: nowrap;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">准备好了吗？
 						</div>
 					</li>
 				</ul>
@@ -413,7 +413,7 @@
 					<div class="category-content">
 						<p>情侣式双人凳</p>
 						<h5>节省最高40%</h5>
-						<a href="#" title="现在购买">购买</a>
+						<a href="/chanpin/fenye" title="现在购买">购买</a>
 					</div>
 				</div>
 			</div>
@@ -423,7 +423,7 @@
 					<div class="category-content">
 						<p>最新款心形凳</p>
 						<h5>最高优惠可达25%</h5>
-						<a href="#" title="现在购买">购买</a>
+						<a href="/chanpin/fenye" title="现在购买">购买</a>
 					</div>
 				</div>
 			</div>
@@ -433,7 +433,7 @@
 					<div class="category-content">
 						<p>可爱的小马扎</p>
 						<h5>最高可省60%</h5>
-						<a href="#" title="购买">购买</a>
+						<a href="/chanpin/fenye" title="购买">购买</a>
 					</div>
 				</div>
 			</div>
@@ -443,86 +443,13 @@
 					<div class="category-content">
 						<p>最有创意的宽凳</p>
 						<h5>创意十足</h5>
-						<a href="#" title="现在购买">购买</a>
+						<a href="/chanpin/fenye" title="现在购买">购买</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div><!-- Category Section /- -->
 
-	<!-- Product Section -->
-	<div id="product-section" class="product-section container-fluid no-padding">
-		<!-- Container -->
-		<div class="container">
-			<div class="row">
-				<!-- Section Header -->
-				<div class="section-header">
-					<h3>我们的产品</h3>
-					<p>我们的愿望就是成为地球上唯一以客户为中心的公司</p>
-					<img src="images/section-seprator.png" alt="section-seprator" />
-				</div><!-- Section Header /- -->
-
-				<ul class="products-categories no-left-padding">
-					<li><a class="active" href="/chanpin/list">所有产品</a></li>
-					<li><a href="/chanpin/leixing?fenlei=沙发">沙发</a></li>
-					<li><a href="/chanpin/leixing?fenlei=椅子">椅子</a></li>
-					<li><a href="/chanpin/leixing?fenlei=茶几">茶几</a></li>
-					<li><a href="/chanpin/leixing?fenlei=桌子">桌子</a></li>
-					<li><a href="/chanpin/leixing?fenlei=床">床</a></li>
-					<li><a href="/chanpin/leixing?fenlei=柜子">柜子</a></li>
-					<li><a href="/chanpin/list">更多<i class="fa fa-angle-down"></i></a></li>
-				</ul>
-				
-				<form action="/chanpin/search" method="post">
-					<div class="input-group">
-						<input name="shangpinming" class="form-control" placeholder="输入你想要的商品" type="text">
-						<span class="input-group-btn">
-						<button class="btn btn-search" title="Search" type="submit"><i class="icon icon-Search"></i></button>
-								</span>
-					</div>
-				</form>
-				<!-- Products -->
-				<ul class="products">
-					
-					<!-- Product -->
-				
-				<c:choose>
-				 	<c:when test="${isflag}">
-				 		暂时还没有相关的产品。
-				 	</c:when>
-				 	<c:otherwise>
-				 		<c:forEach var="SearchResult" items="${SearchResults}">
-									<li class="product video">
-										<a href="#">
-											<img src="${SearchResult.img}" alt="Product" />
-											<h5>${SearchResult.shangpinming}</h5>
-											<span class="price"><del>¥${SearchResult.jiage}</del>$${SearchResult.youhui }</span>
-										</a>
-										<div class="wishlist-box">
-											<a href="#"><i class="fa fa-arrows-alt" title="查看详情"></i></a>
-											<a href="/chanpin/shoucang?id=${SearchResult.id}"><i class="fa fa-heart-o" title="收藏"></i></a>
-											<a href="#"><i class="fa fa-search" title="更多相似产品"></i></a>
-										</div>
-										<a href="#" class="addto-cart" title="添加到购物车">添加到购物车</a>
-									</li><!-- Product /- -->
-								</c:forEach>
-				 	</c:otherwise>
-				 </c:choose>
-					
-				</ul><!-- Products /- -->
-			</div><!-- Row /- -->
-			
-			
-			<nav class="ow-pagination">
-				<ul class="pagination">
-					  <li><a href="/chanpin/fenye?start=0">首页</a></li>
-					  <li><a href="/chanpin/fenye?start=${pre}">«</a></li>
-					  <li><a href="/chanpin/fenye?start=${next}">»</a></li>
-					  <li><a href="/chanpin/fenye?start=${last}">末页</a></li>
-				</ul>
-			</nav>
-		</div><!-- Container /- -->
-	</div><!-- Product Section /- -->
 
 	<!-- Collection Section1 -->
 	<div id="collection" class="collection-section collection-section1 container-fluid no-padding">
@@ -533,7 +460,7 @@
 					<div class="collection-content">
 						<h5>家居</h5>
 						<p>创意制造产品</p>
-						<a href="#" title="立刻进入商城">进入商城</a>
+						<a href="/chanpin/fenye" title="立刻进入商城">进入商城</a>
 					</div>
 				</div>
 			</div>
@@ -543,7 +470,7 @@
 					<div class="collection-content">
 						<h5>创意智能家居</h5>
 						<p>科技改变生活</p>
-						<a href="#" title="立刻进入商城">进入商城</a>
+						<a href="/chanpin/fenye" title="立刻进入商城">进入商城</a>
 					</div>
 				</div>
 			</div>
@@ -553,7 +480,7 @@
 					<div class="collection-content">
 						<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;孩子</h5>
 						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;给孩子更多的爱</p>
-						<a href="#" title="立刻进入商城">进入商城</a>
+						<a href="/chanpin/fenye" title="立刻进入商城">进入商城</a>
 					</div>
 				</div>
 			</div>
@@ -575,12 +502,12 @@
 					<h5>家居改变的不只是生活</h5>
 					<p>生活的深度源自于你奋斗的程度</p>
 					<ul>
-						<li><a href="#"><img src="images/deal-3.jpg" alt="deal"></a></li>
-						<li><a href="#"><img src="images/deal-4.jpg" alt="deal"></a></li>
-						<li><a href="#"><img src="images/deal-5.jpg" alt="deal"></a></li>
-						<li><a href="#"><img src="images/deal-6.jpg" alt="deal"></a></li>
-						<li><a href="#"><img src="images/deal-7.jpg" alt="deal"></a></li>
-						<li><a href="#"><img src="images/deal-8.jpg" alt="deal"></a></li>
+						<li><a href="/chanpin/index"><img src="images/deal-3.jpg" alt="deal"></a></li>
+						<li><a href="/chanpin/index"><img src="images/deal-4.jpg" alt="deal"></a></li>
+						<li><a href="/chanpin/index"><img src="images/deal-5.jpg" alt="deal"></a></li>
+						<li><a href="/chanpin/index"><img src="images/deal-6.jpg" alt="deal"></a></li>
+						<li><a href="/chanpin/index"><img src="images/deal-7.jpg" alt="deal"></a></li>
+						<li><a href="/chanpin/index"><img src="images/deal-8.jpg" alt="deal"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -588,7 +515,7 @@
 				<div class="carousel-item">
 					<div class="item">
 						<img src="images/deal-9.jpg" alt="deal" />
-						<a href="#" class="product-del">
+						<a href="/chanpin/index" class="product-del">
 							<h5>mens casual shoes</h5>
 							<span class="price"><del>¥850</del>¥550</span>
 						</a>
@@ -596,7 +523,7 @@
 
 					<div class="item">
 						<img src="images/deal-9.jpg" alt="deal" />
-						<a href="#" class="product-del">
+						<a href="/chanpin/index" class="product-del">
 							<h5>mens casual shoes</h5>
 							<span class="price"><del>¥850</del>¥550</span>
 						</a>
@@ -604,7 +531,7 @@
 
 					<div class="item">
 						<img src="images/deal-9.jpg" alt="deal" />
-						<a href="#" class="product-del">
+						<a href="/chanpin/index" class="product-del">
 							<h5>mens casual shoes</h5>
 							<span class="price"><del>¥850</del>¥550</span>
 						</a>
@@ -695,67 +622,64 @@
 				<p>我们的愿望就是成为地球上唯一以客户为中心的公司</p>
 				<img src="images/section-seprator.png" alt="section-seprator" />
 			</div><!-- Section Header /- -->
-			<div class="col-md-4 col-sm-6 col-xs-6">
+			
+<div class="col-md-4 col-sm-6 col-xs-6">
 				<div class="type-post">
 					<div class="entry-cover">
-						<a href="#"><img src="images/blog-2.jpg" alt="blog"></a>
+						<a href="/chanpin/index"><img src="images/blog-2.jpg" alt="blog"></a>
 						<span class="post-date"><a href="#"><i class="fa fa-calendar-o"></i>7月26日</a></span>
 					</div>
 					<div class="blog-content">
-						<h3 class="entry-title"><a title="把最优质的产品送给你们" href="#">更多惊喜进店<span>查看</span></a></h3>
+						<h3 class="entry-title"><a title="把最优质的产品送给你们" href="/chanpin/index">更多惊喜进店<span>查看</span></a></h3>
 						<div class="entry-meta">
-							<span class="post-like"><a href="#" title="85人表示喜欢"><i class="fa fa-heart-o"></i>85人表示喜欢</a></span>
+							<span class="post-like"><a href="/chanpin/index" title="85人表示喜欢"><i class="fa fa-heart-o"></i>85人表示喜欢</a></span>
 							<span class="post-admin"><i class="fa fa-user"></i>旗舰店<a href="#" title="家居">家居</a></span>
 						</div>
 						<div class="entry-content">
 							<p>皇后大道西又皇后大道东，皇后大道东转皇后大道中，皇后大道东上为何无皇宫，皇后大道中人民如潮涌</p>
-							<a href="#" title="点击查看更多" class="read-more">查看更多<i class="fa fa-long-arrow-right"></i></a>
+							<a href="/chanpin/index" title="点击查看更多" class="read-more">查看更多<i class="fa fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="col-md-4 col-sm-6 col-xs-6">
+<div class="col-md-4 col-sm-6 col-xs-6">
 				<div class="type-post">
 					<div class="entry-cover">
-						<a href="#"><img src="images/blog-2.jpg" alt="blog"></a>
+						<a href="/chanpin/index"><img src="images/blog-2.jpg" alt="blog"></a>
 						<span class="post-date"><a href="#"><i class="fa fa-calendar-o"></i>7月26日</a></span>
 					</div>
 					<div class="blog-content">
-						<h3 class="entry-title"><a title="把最优质的产品送给你们" href="#">更多惊喜进店<span>查看</span></a></h3>
+						<h3 class="entry-title"><a title="把最优质的产品送给你们" href="/chanpin/index">更多惊喜进店<span>查看</span></a></h3>
 						<div class="entry-meta">
-							<span class="post-like"><a href="#" title="85人表示喜欢"><i class="fa fa-heart-o"></i>85人表示喜欢</a></span>
+							<span class="post-like"><a href="/chanpin/index" title="85人表示喜欢"><i class="fa fa-heart-o"></i>85人表示喜欢</a></span>
 							<span class="post-admin"><i class="fa fa-user"></i>旗舰店<a href="#" title="家居">家居</a></span>
 						</div>
 						<div class="entry-content">
 							<p>皇后大道西又皇后大道东，皇后大道东转皇后大道中，皇后大道东上为何无皇宫，皇后大道中人民如潮涌</p>
-							<a href="#" title="点击查看更多" class="read-more">查看更多<i class="fa fa-long-arrow-right"></i></a>
+							<a href="/chanpin/index" title="点击查看更多" class="read-more">查看更多<i class="fa fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="col-md-4 col-sm-6 col-xs-6">
+<div class="col-md-4 col-sm-6 col-xs-6">
 				<div class="type-post">
 					<div class="entry-cover">
-						<a href="#"><img src="images/blog-2.jpg" alt="blog"></a>
+						<a href="/chanpin/index"><img src="images/blog-2.jpg" alt="blog"></a>
 						<span class="post-date"><a href="#"><i class="fa fa-calendar-o"></i>7月26日</a></span>
 					</div>
 					<div class="blog-content">
-						<h3 class="entry-title"><a title="把最优质的产品送给你们" href="#">更多惊喜进店<span>查看</span></a></h3>
+						<h3 class="entry-title"><a title="把最优质的产品送给你们" href="/chanpin/index">更多惊喜进店<span>查看</span></a></h3>
 						<div class="entry-meta">
-							<span class="post-like"><a href="#" title="85人表示喜欢"><i class="fa fa-heart-o"></i>85人表示喜欢</a></span>
+							<span class="post-like"><a href="/chanpin/index" title="85人表示喜欢"><i class="fa fa-heart-o"></i>85人表示喜欢</a></span>
 							<span class="post-admin"><i class="fa fa-user"></i>旗舰店<a href="#" title="家居">家居</a></span>
 						</div>
 						<div class="entry-content">
 							<p>皇后大道西又皇后大道东，皇后大道东转皇后大道中，皇后大道东上为何无皇宫，皇后大道中人民如潮涌</p>
-							<a href="#" title="点击查看更多" class="read-more">查看更多<i class="fa fa-long-arrow-right"></i></a>
+							<a href="/chanpin/index" title="点击查看更多" class="read-more">查看更多<i class="fa fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div><!-- Container /- -->
-	</div><!-- Latest Blog /- -->
 
 	<!-- Selling -->
 	<div id="selling" class="container-fluid no-left-padding no-right-padding woocommerce-selling">
@@ -771,7 +695,7 @@
 				<div  class="selling-box">
 					<img src="images/selling-1.jpg" alt="selling" />
 					<div class="selling-content">
-						<h6><a href="#">更好看的家居</a></h6>
+						<h6><a href="/chanpin/index">更好看的家居</a></h6>
 						<span class="price"><del>¥75</del> ¥49</span>
 						<div class="star-rating">
 							<i class="fa fa-star"></i>
@@ -782,8 +706,8 @@
 						</div>
 					</div>
 					<div class="icon-list">
-						<a href="#"><i class="fa fa-arrows-alt"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-arrows-alt"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-heart-o"></i></a>
 					</div>
 				</div>
 			</div>
@@ -803,8 +727,8 @@
 						</div>
 					</div>
 					<div class="icon-list">
-						<a href="#"><i class="fa fa-arrows-alt"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-arrows-alt"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-heart-o"></i></a>
 					</div>
 				</div>
 			</div>
@@ -813,7 +737,7 @@
 				<div  class="selling-box">
 					<img src="images/selling-3.jpg" alt="selling" />
 					<div class="selling-content">
-						<h6><a href="#">更好看的家居</a></h6>
+						<h6><a href="/chanpin/index">更好看的家居</a></h6>
 						<span class="price"><del>¥325</del> ¥249</span>
 						<div class="star-rating">
 							<i class="fa fa-star"></i>
@@ -824,8 +748,8 @@
 						</div>
 					</div>
 					<div class="icon-list">
-						<a href="#"><i class="fa fa-arrows-alt"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-arrows-alt"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-heart-o"></i></a>
 					</div>
 				</div>
 			</div>
@@ -834,7 +758,7 @@
 				<div  class="selling-box">
 					<img src="images/selling-4.jpg" alt="selling" />
 					<div class="selling-content">
-						<h6><a href="#">更好看的家居</a></h6>
+						<h6><a href="/chanpin/index">更好看的家居</a></h6>
 						<span class="price"><del>¥240</del> ¥179</span>
 						<div class="star-rating">
 							<i class="fa fa-star"></i>
@@ -845,8 +769,8 @@
 						</div>
 					</div>
 					<div class="icon-list">
-						<a href="#"><i class="fa fa-arrows-alt"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-arrows-alt"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-heart-o"></i></a>
 					</div>
 				</div>
 			</div>
@@ -855,7 +779,7 @@
 				<div  class="selling-box">
 					<img src="images/selling-5.jpg" alt="selling" />
 					<div class="selling-content">
-						<h6><a href="#">更好看的家居</a></h6>
+						<h6><a href="/chanpin/index">更好看的家居</a></h6>
 						<span class="price"><del>¥120</del> ¥79</span>
 						<div class="star-rating">
 							<i class="fa fa-star"></i>
@@ -866,8 +790,8 @@
 						</div>
 					</div>
 					<div class="icon-list">
-						<a href="#"><i class="fa fa-arrows-alt"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-arrows-alt"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-heart-o"></i></a>
 					</div>
 				</div>
 			</div>
@@ -876,7 +800,7 @@
 				<div  class="selling-box">
 					<img src="images/selling-6.jpg" alt="selling" />
 					<div class="selling-content">
-						<h6><a href="#">更好看的家居</a></h6>
+						<h6><a href="/chanpin/index">更好看的家居</a></h6>
 						<span class="price"><del>¥850</del> ¥550</span>
 						<div class="star-rating">
 							<i class="fa fa-star"></i>
@@ -887,8 +811,8 @@
 						</div>
 					</div>
 					<div class="icon-list">
-						<a href="#"><i class="fa fa-arrows-alt"></i></a>
-						<a href="#"><i class="fa fa-heart-o"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-arrows-alt"></i></a>
+						<a href="/chanpin/index"><i class="fa fa-heart-o"></i></a>
 					</div>
 				</div>
 			</div>
@@ -900,17 +824,17 @@
 		<!-- Container -->
 		<div class="container">
 			<div class="clients-carousel">
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-1.png" alt="client-1"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-2.png" alt="client-2"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-3.png" alt="client-3"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-4.png" alt="client-4"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-5.png" alt="client-5"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-1.png" alt="client-1"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-2.png" alt="client-2"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-3.png" alt="client-3"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-4.png" alt="client-4"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-5.png" alt="client-5"></a></div>
 
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-1.png" alt="client-1"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-2.png" alt="client-2"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-3.png" alt="client-3"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-4.png" alt="client-4"></a></div>
-				<div class="col-md-12 item"><a href="#" title="商标"><img src="images/client-5.png" alt="client-5"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-1.png" alt="client-1"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-2.png" alt="client-2"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-3.png" alt="client-3"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-4.png" alt="client-4"></a></div>
+				<div class="col-md-12 item"><a href="/chanpin/index" title="商标"><img src="images/client-5.png" alt="client-5"></a></div>
 			</div>
 		</div><!-- Container /- -->
 	</div><!-- Clients /- -->
@@ -926,31 +850,31 @@
 					<a href="index.jsp" title="Max Shop">我的家居<span>商城</span></a>
 					<div class="info">
 						<p><i class="icon icon-Pointer"></i>郑州航院</p>
-						<p><i class="icon icon-Phone2"></i><a href="tel:(11)1234567890" title="电话" class="phone">123456789+</a></p>
-						<p><i class="icon icon-Imbox"></i><a href="mailto:info@maxshop.com" title="百度一下，你就知道">www.baidu.com</a></p>
+						<p><i class="icon icon-Phone2"></i><a href="http://www.baidu.com" title="电话" class="phone">123456789+</a></p>
+						<p><i class="icon icon-Imbox"></i><a href="mailto:123456789@163.com" title="百度一下，你就知道">发送邮件</a></p>
 					</div>
 				</aside><!-- Widget About /- -->
 				<!-- Widget Links -->
 				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links">
 					<h3 class="widget-title">最新流行风</h3>
 					<ul>
-						<li><a href="#product-section" title="最新流行风">最新流行风</a></li>
-						<li><a href="#selling" title="畅销款">畅销款</a></li>
-						<li><a href="about.jsp" title="关于我们">关于我们</a></li>
-						<li><a href="#dealing" title="今日爆款">今日爆款</a></li>
-						<li><a href="#collection" title="产品收藏">产品收藏</a></li>
-						<li><a href="contact-us.jsp" title="联系我们">联系我们</a></li>
+						<li><a href="/chanpin/index" title="最新流行风">最新流行风</a></li>
+						<li><a href="/chanpin/index" title="畅销款">畅销款</a></li>
+						<li><a href="/about" title="关于我们">关于我们</a></li>
+						<li><a href="/chanpin/index" title="今日爆款">今日爆款</a></li>
+						<li><a href="/chanpin/index" title="产品收藏">产品收藏</a></li>
+						<li><a href="/connectus" title="联系我们">联系我们</a></li>
 					</ul>
 				</aside><!-- Widget Links /- -->
 				<!-- Widget Account -->
 				<aside class="col-md-3 col-sm-6 col-xs-6 ftr-widget widget_links widget_account">
 					<h3 class="widget-title">我的账户</h3>
 					<ul>
-						<li><a href="#" title="我的订单">我的订单</a></li>
-						<li><a href="#" title="我的信用">我的信用</a></li>
-						<li><a href="#" title="我的地址">我的地址</a></li>
-						<li><a href="#" title="我的个人资料">我的个人资料</a></li>
-						<li><a href="#" title="我的账户">我的账户</a></li>
+						<li><a href="/message/myorder" title="我的订单">我的订单</a></li>
+						<li><a href="/message/myorder" title="我的信用">我的信用</a></li>
+						<li><a href="/message/myindex" title="我的地址">我的地址</a></li>
+						<li><a href="/message/myorder" title="我的个人资料">我的个人资料</a></li>
+						<li><a href="/message/myorder" title="我的账户">我的账户</a></li>
 					</ul>
 				</aside><!-- Widget Account /- -->
 				<!-- Widget Newsletter -->
@@ -965,11 +889,11 @@
 					<h5>从商城中获取最新的产品</h5>
 					<h3 class="widget-title widget-title-1">加入我们</h3>
 					<ul class="social">
-						<li><a href="#" title="qq"><i class="fa fa-qq"></i></a></li>
-						<li><a href="#" title="微信"><i class="fa fa-wechat"></i></a></li>
-						<li><a href="#" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
-						<li><a href="#" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
-						<li><a href="#" title="分享"><i class="fa fa-bicycle"></i></a></li>
+						<li><a href="http://www.qq.com" title="qq"><i class="fa fa-qq"></i></a></li>
+						<li><a href="http://www.qq.com" title="微信"><i class="fa fa-wechat"></i></a></li>
+						<li><a href="http://www.qq.com" title="腾讯微博"><i class="fa fa-tencent-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+						<li><a href="http://www.qq.com" title="分享"><i class="fa fa-bicycle"></i></a></li>
 					</ul>
 				</aside><!-- Widget Newsletter /- -->
 			</div>
@@ -978,9 +902,10 @@
 					<p>Copyright &copy; 版权(2007)公司名称保留所有权利。<a href="http://www.baidu.com/" target="_blank" title="百度">百度</a>----<a href="http://www.qq.com/" title="腾讯" target="_blank">腾讯</a></p>
 				</div>
 				<ul>
-					<li><a href="#" title="快递信息">快递信息</a></li>
-					<li><a href="#" title="隐私政策">隐私政策</a></li>
-					<li><a href="#" title="条款和条件">条款和条件</a></li>
+					<li><a href="http://www.kuaidi100.com/" title="快递信息">快递信息</a></li>
+					<li><a href="http://www.baidu.com" title="隐私政策">隐私政策</a></li>
+					<li><a href="http://www.baidu.com" title="条款和条件">条款和条件</a></li>
+					<li><a href="#" title="选择用户">选择用户</a></li>
 				</ul>
 			</div>
 		</div><!-- Container /- -->

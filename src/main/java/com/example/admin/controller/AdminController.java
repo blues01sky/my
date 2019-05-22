@@ -30,6 +30,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin",method = RequestMethod.GET)
     public void index(HttpSession session,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
 		List<AdminMessage> adminMessages = adminMessageService.findAll();
+		
 		request.setAttribute("adminMessages",adminMessages);
 		request.getRequestDispatcher("/WEB-INF/jsp/admin/admin.jsp").forward(request, response);
     }
@@ -49,7 +50,7 @@ public class AdminController {
     }
 	
 	@RequestMapping(value = "/deladmin",method = RequestMethod.GET)
-    public void deladmin(String adminname,HttpServletResponse response,HttpServletRequest request) throws IOException{
+    public void deladmin(HttpSession session,String adminname,HttpServletResponse response,HttpServletRequest request) throws IOException{
 		adminService.delbyadminname(adminname);
 		adminMessageService.delmessage(adminname);
 		System.out.println("删除管理员信息成功|！");

@@ -80,15 +80,13 @@ public class OrderController {
 	  @RequestMapping(value = "/addcart",method = RequestMethod.GET)
 	    public void orderIndex(HttpSession session,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
 		  String username = (String) session.getAttribute("username");
-		  String orderid = GetOrderId.getOrderIdByTime();
+		  System.out.println("username::::::::::::::::::::::::::::"+username);
 		  Message message = messageService.findByUsername(username);
-		  System.out.println("message::::::::::::::::::::::::::"+message);
-		  if (message==null) {//如果没有这个用户信息，那么跳到个人中心首页，让其设置用户信息
-			  response.sendRedirect(response.encodeRedirectURL("/message/myindex"));
-		}else {
-			System.out.println("已经有收获地址！");
-		} //如果地址表有地址，那么不在保存，如果没有就保存在数据库中
-		 
+		  
+		  if (message!=null) {//如果没有这个用户信息，那么跳到个人中心首页，让其设置用户信息
+			  
+			  String orderid = GetOrderId.getOrderIdByTime();
+				 
 			  String telphone = message.getTelphone();
 			  String address = message.getAddress();
 			  Order order = new Order();
@@ -110,6 +108,12 @@ public class OrderController {
 			  }
 			  cartService.delByusername(username);
 			  response.sendRedirect(response.encodeRedirectURL("/order/index"));
+			 
+		}else {
+			System.err.println("没有收货地址请添加");
+			
+			response.sendRedirect(response.encodeRedirectURL("/message/myindex"));
+		} //如果地址表有地址，那么不在保存，如果没有就保存在数据库中
 	  }
 	  
 	  @RequestMapping(value = "/index",method = RequestMethod.GET)

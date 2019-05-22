@@ -14,10 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.entity.Cart;
 import com.example.demo.service.CartService;
+import com.example.demo.service.ChanPinService;
 
 @Controller
 @RequestMapping("/cart1")
@@ -25,6 +27,8 @@ public class CartController {
 	
 	@Autowired
 	private CartService cartService;
+	@Autowired
+	private ChanPinService chanPinService;
 	
 	@RequestMapping(value = "/cart",method = RequestMethod.GET)
 	@ResponseBody
@@ -34,6 +38,7 @@ public class CartController {
 		
 		username  = (String) session.getAttribute("username");
 		if (username == null) {
+			
 			request.getRequestDispatcher("/WEB-INF/jsp/show/regist.jsp").forward(request, response);
 		}
 		findcartresults = cartService.cartFindByUsername(username);
@@ -61,6 +66,25 @@ public class CartController {
 		Integer goodsnum = Integer.parseInt(request.getParameter("shuliang"));
 		String goodsname = String.valueOf(request.getParameter("shangpinming"));
 		double singleprice = Double.parseDouble(request.getParameter("danjia"));
+		double sumprice = goodsnum * singleprice;
+		
+		String username1 = (String) session.getAttribute("username");
+		
+		cartService.addcart(goodsname, goodsnum, singleprice, sumprice, username1);
+		
+		System.out.println("添加购物车数据成功！");
+		
+		response.sendRedirect(response.encodeRedirectURL("/cart1/cart"));
+	}
+	
+	@RequestMapping(value = "/cart2",method = RequestMethod.GET)
+	@ResponseBody
+	public void addtocart2(@RequestParam("shangpinming") String shangpinming, HttpSession session,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		
+		Integer goodsnum = 1;
+		String goodsname = shangpinming;
+		
+		double singleprice = Double.parseDouble(chanPinService.findByShangPinMing(shangpinming).getYouhui());
 		double sumprice = goodsnum * singleprice;
 		
 		String username1 = (String) session.getAttribute("username");

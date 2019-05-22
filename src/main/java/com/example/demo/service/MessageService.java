@@ -8,7 +8,7 @@ import com.example.demo.entity.Message;
 
 @Service
 public interface MessageService {
-	int addmessage(String username,String telphone,String address);
+	Message addmessage(Message message);
 	
 	Message findByUsername(String username);
 	

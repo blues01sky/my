@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.entity.ChanPin;
 import com.example.demo.service.ChanPinService;
 import com.example.demo.util.FileUtil;
+import com.example.demo.util.GetOrderId;
 
 @Controller
 @RequestMapping("/goodsadmin")
@@ -49,7 +50,8 @@ public class AdminGoodsController {
 	
 	@RequestMapping(value = "/updategoods",method = RequestMethod.POST)
 	 public @ResponseBody void updategoods(@RequestParam("picadress") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws IOException {
-	        String fileName = file.getOriginalFilename();
+//	        String fileName = file.getOriginalFilename();
+			String fileName = GetOrderId.getOrderIdByTime();
 	        String shujukulufilename = "images/"+fileName;
 	        String filePath = "F:/My/fianl/src/main/resources/static/images/";
 	        try {
@@ -91,7 +93,7 @@ public class AdminGoodsController {
 	
 	@RequestMapping(value = "/goodsadd",method = RequestMethod.POST)
 	 public @ResponseBody void uploadImg(@RequestParam("picadress") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws IOException {
-	        String fileName = file.getOriginalFilename();
+	        String fileName = GetOrderId.getOrderIdByTime();
 	        String shujukulufilename = "images/"+fileName;
 	        String filePath = "F:/My/fianl/src/main/resources/static/images/";
 	        try {

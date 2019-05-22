@@ -54,7 +54,7 @@
             <form action="/adminorder/search" method="post">
             <div class="search">
                 <span>订单名称：</span>
-                <input name="duixaing" value="" type="text" placeholder="请输入商品的名称"/>
+                <input name="duixaing" value="" type="text" placeholder="请输入收货人的名字"/>
                 <input type="submit" value="查询"/>
             </div>
             </form>

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.Cart;
-import com.example.demo.entity.ChanPin;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart,Integer> {

@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.entity.ChanPin;
 import com.example.demo.entity.Message;
 
 @Repository
@@ -20,10 +19,11 @@ public interface MessageRepository extends JpaRepository<Message,Integer> {
 	@Query(value = "update message set username = ?1 where username = ?2",nativeQuery = true)
 	int updatename(String newusername,String oldusername);
 	
-	@Transactional
+/*	@Transactional
 	@Modifying
 	@Query(value = "insert into message(username,address,telphone) values (?1,?2,?3)",nativeQuery = true)
-	int addmessage(String username,String address,String telphone);
+	int addmessage(String username,String address,String telphone);*/
+	
 	
 	@Transactional
 	@Modifying
@@ -47,5 +47,6 @@ public interface MessageRepository extends JpaRepository<Message,Integer> {
 	int delmessage(String username);
 	
 	List<Message> findByUsernameContaining(String username);
+	
 	
 }

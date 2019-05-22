@@ -16,8 +16,8 @@ public class MessageServiceImpl implements MessageService {
 	private MessageRepository messageRepository;
 	
 	@Override
-	public int addmessage(String username,String telphone,String address) {
-		return messageRepository.addmessage(username, address, telphone);
+	public Message addmessage(Message message) {
+		return messageRepository.save(message);
 	}
 	
 	@Override

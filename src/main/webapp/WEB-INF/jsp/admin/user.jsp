@@ -76,8 +76,8 @@
                     <td>${listmessage.address }</td>
                     <td>${listmessage.creatime }</td>
                     <td>
-                        <a href="/useradmin/updateuser?username=${listmessage.username }"><img src="img/xiugai.png" alt="修改" title="修改"/></a>
-                        <a href="/useradmin/deluser?username=${listmessage.username }" class="removeUser"><img src="img/schu.png" alt="删除" title="删除"/></a>
+                        <a href="javascript:if(confirm('确实要修改这个用户吗?'))location='/useradmin/updateuser?username=${listmessage.username }'"><img src="img/xiugai.png" alt="修改" title="修改"/></a>
+                        <a href="javascript:if(confirm('确实要删除这个用户吗?'))location='/useradmin/deluser?username=${listmessage.username }'" class="removeUser"><img src="img/schu.png" alt="删除" title="删除"/></a>
                     </td>
                 </tr>
                 </c:forEach>

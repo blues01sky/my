@@ -28,6 +28,7 @@ public class AdminUserController {
 	@RequestMapping(value = "/index",method = RequestMethod.GET)
     public String index(HttpServletRequest request,HttpServletResponse response){
 		List<Message> listmessages = messageService.findall();
+		System.out.println(listmessages);
 		request.setAttribute("listmessages",listmessages);
         return "admin/user";
     }

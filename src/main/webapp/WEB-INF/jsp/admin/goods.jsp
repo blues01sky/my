@@ -81,8 +81,8 @@
                 <td>${listchanpin.img }</td>
                 <td>${listchanpin.kucunliang }</td>
                 <td>
-                    <a href="/goodsadmin/updategoods?shangpinming=${listchanpin.shangpinming }"><img src="img/xiugai.png" alt="修改" title="修改"/></a>
-                    <a href="/goodsadmin/delgoods?shangpinming=${listchanpin.shangpinming }" class="removeProvider"><img src="img/schu.png" alt="删除" title="删除"/></a>
+                    <a href="javascript:if(confirm('确实要修改这个商品吗?'))location='/goodsadmin/updategoods?shangpinming=${listchanpin.shangpinming }'"><img src="img/xiugai.png" alt="修改" title="修改"/></a>
+                    <a href="javascript:if(confirm('确实要删除这个商品吗?'))location='/goodsadmin/delgoods?shangpinming=${listchanpin.shangpinming }'" class="removeProvider"><img src="img/schu.png" alt="删除" title="删除"/></a>
                 </td>
             </tr>
             </c:forEach>

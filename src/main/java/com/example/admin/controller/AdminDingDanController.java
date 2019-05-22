@@ -46,6 +46,7 @@ public class AdminDingDanController {
 			   superOrder.setTelphone(order.getTelphone());
 			   superOrder.setUsername(order.getUsername());
 			   superOrder.setZhuangtai(order.getZhuangtai());
+			   superOrder.setCreatime(order.getCreatime());
 			   listsuperorder.add(superOrder);
 		}
 		   

@@ -21,6 +21,7 @@ import com.example.demo.entity.Order2;
 import com.example.demo.service.MessageService;
 import com.example.demo.service.Order2Service;
 import com.example.demo.service.OrderService;
+import com.example.demo.service.UserService;
 import com.example.demo.vo.SuperOrder;
 
 @Controller
@@ -32,6 +33,8 @@ public class MessageController {
     private OrderService orderService;
     @Autowired
     private Order2Service order2Service;
+    @Autowired
+    private UserService userService;
    
 //    @RequestMapping(value = "/Doctor/index", method = RequestMethod.GET)
 //    public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,7 +55,13 @@ public class MessageController {
 	   String username = (String) session.getAttribute("username");
 	   String tel = request.getParameter("tel");
 	   String address = request.getParameter("address");
-	   messageService.addmessage(username, tel, address);
+	   String password = userService.findByUsername(username).getPassword();
+	   Message message = new Message();
+	   message.setAddress(address);
+	   message.setUsername(username);
+	   message.setTelphone(tel);
+	   message.setPassword(password);
+	   messageService.save(message);
 	   System.out.println("添加个人信息成功！");
 //	   request.getRequestDispatcher("/WEB-INF/jsp/show/myindex.jsp").forward(request, response);
 	   response.sendRedirect(response.encodeRedirectURL("/message/myindex"));

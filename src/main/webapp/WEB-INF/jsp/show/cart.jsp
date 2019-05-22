@@ -300,7 +300,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<tr>
 												<td class="action" colspan="6">
 													<a href="/goods" title="继续购物">继续购物</a>
-													<a href="#" title="更新购物车">更新购物车</a>
+													<a href="/cart" title="更新购物车">更新购物车</a>
 												</td>
 											</tr>
 										</tbody>

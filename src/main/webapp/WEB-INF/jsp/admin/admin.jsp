@@ -14,8 +14,10 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   		 	<link rel="stylesheet" href="css/public.css"/>
   			<link rel="stylesheet" href="css/style2.css"/>
+  			
 </head>
 <body>
+
 <!--头部-->
 <header class="publicHeader">
     <h1>家具商城后台管理</h1>
@@ -54,8 +56,9 @@
                <form action="/adminuser/search" method="post">
              <div class="search">
                 <span>用户名：</span>
-                <input type="text" name="searchuser" placeholder="请输入用户名"/>
+                <input type="text" name="searchuser" placeholder="请输入管理员名字"/>
                 <input type="submit" title="submit" value="查询"/>
+               
                 <a href="/adminuser/addadminuser">添加用户</a>
             </div>
             </form>
@@ -81,8 +84,8 @@
                     <td>${adminMessage.age }</td>
                     <td>${adminMessage.creatime }</td>
                     <td>
-                        <a href="/adminuser/adminupdate?name=${adminMessage.adminname }"><img src="img/xiugai.png" alt="修改" title="修改"/></a>
-                        <a href="/adminuser/deladmin?adminname=${adminMessage.adminname }" class="removeUser"><img src="img/schu.png" alt="删除" title="删除"/></a>
+                        <a href="javascript:if(confirm('确实要修改这个管理员吗?'))location='/adminuser/adminupdate?name=${adminMessage.adminname }'"><img src="img/xiugai.png" alt="修改" title="修改"/></a>
+                        <a href="javascript:if(confirm('确实要删除这个管理员吗?'))location='/adminuser/deladmin?adminname=${adminMessage.adminname }'" class="removeUser"><img src="img/schu.png" alt="删除" title="删除"/></a>
                     </td>
                 </tr>
                 </c:forEach>
